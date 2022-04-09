@@ -26,7 +26,6 @@ class Graph:
     pass
 
 
-# noinspection PyTypeChecker
 class BatchGenerator:
     def __init__(self, chem_key_to_graph_dict, prot_key_to_graph_dict,
                  chem_key_to_meta_dict, prot_key_to_meta_dict, device,
