@@ -5,8 +5,6 @@ import pickle
 import numpy as np
 from tqdm import tqdm
 import torch
-from sklearn.metrics import roc_auc_score, precision_recall_curve, precision_score, recall_score, \
-    f1_score, auc, accuracy_score, matthews_corrcoef
 from sklearn.metrics import mean_squared_error, mean_absolute_error, median_absolute_error, \
     mean_absolute_percentage_error, max_error, r2_score
 from scipy.stats import pearsonr
@@ -221,30 +219,6 @@ def get_metrics_reg(y_true, y_pred):
     metrics["maxe"] = float(max_error(y_true, y_pred))
     metrics["r2"] = float(r2_score(y_true, y_pred))
     metrics["pearsonr"] = pearsonr(y_true.flatten(), y_pred.flatten())[0]
-    return metrics
-
-
-def get_metrics_cls(y_true, y_pred, pred_transform=torch.sigmoid, threshold=0.5):
-    if pred_transform is not None:
-        y_pred = pred_transform(y_pred)
-    y_pred_lbl = (y_pred >= threshold).type(torch.float32)
-
-    metrics = dict()
-    metrics["f1"] = float(f1_score(y_true, y_pred_lbl))
-    metrics["precision"] = float(precision_score(y_true, y_pred_lbl, zero_division=0))
-    metrics["recall"] = float(recall_score(y_true, y_pred_lbl))
-    metrics["accuracy"] = float(accuracy_score(y_true, y_pred_lbl))
-    metrics["mcc"] = float(matthews_corrcoef(y_true, y_pred_lbl))
-    try:
-        metrics["rocauc"] = float(roc_auc_score(y_true, y_pred))
-    except ValueError:
-        metrics["rocauc"] = np.nan
-    try:
-        precision_list, recall_list, thresholds = precision_recall_curve(y_true, y_pred)
-        metrics["prauc"] = float(auc(recall_list, precision_list))
-    except ValueError:
-        metrics["prauc"] = np.nan
-
     return metrics
 
 

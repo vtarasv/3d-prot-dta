@@ -12,7 +12,7 @@ import argparse
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--benchmark', '-b', type=str, required=True, choices=["davis", "kiba"],
-                        help='name of benchmark dataset')
+                        help='name of the benchmark dataset')
 
     args = parser.parse_args()
     benchmark = args.benchmark
