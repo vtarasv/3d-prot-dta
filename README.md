@@ -6,9 +6,11 @@
  ---
 
 # Requirements
-- python 3.7+ <br />
+- [Python](https://www.python.org/) >= 3.7 <br />
+- [PyTorch](https://pytorch.org/) >= 1.9 <br />
+- [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/) >= 2.0 <br />
 # Usage
-1. Create and activate a new python virtual environment <br />
+1. Activate a python environment with PyTorch and PyTorch Geometric <br />
 2. Clone the repository, navigate to the cloned folder <br />
 `git clone https://github.com/vtarasv/3d-prot-dta.git` <br />
 `cd 3d-prot-dta/` <br />
