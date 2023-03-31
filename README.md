@@ -1,10 +1,11 @@
 <h1 align="center">
-<p> Drug-Target Affinity Prediction Using Graph Neural Networks and AlphaFold-Based Protein Structures</h1>
+<p> 3DProtDTA: a deep learning model for drug-target affinity prediction based on residue-level protein graphs</h1>
 
 <p align="center"><img src="img/general_model.png" alt="logo" width="700px" /></p>
 
  ---
-
+# Article
+https://doi.org/10.1039/D3RA00281K
 # Requirements
 - [Python](https://www.python.org/) >= 3.7 <br />
 - [PyTorch](https://pytorch.org/) >= 1.9 <br />
